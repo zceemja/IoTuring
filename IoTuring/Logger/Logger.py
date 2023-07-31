@@ -46,6 +46,7 @@ class Logger():
         """ Check if exists (or create) the folder of logs inside this file's folder """
         thisFolder = os.path.dirname(inspect.getfile(Logger))
         newFolder = os.path.join(thisFolder, consts.LOGS_FOLDER)
+        newFolder = os.environ.get(consts.LOG_PATH_ENV_VAR, newFolder)
         if not os.path.exists(newFolder):
             os.mkdir(newFolder)
 
